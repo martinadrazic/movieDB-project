@@ -1,0 +1,29 @@
+.banner {
+    position: relative;
+    overflow: hidden;
+    height: 180px;
+    width: 100vw;
+    background-position: right top, left top;
+    background-repeat: repeat;
+    background-image: url("https://m.media-amazon.com/images/M/MV5BMTY4NTIwODg0N15BMl5BanBnXkFtZTcwOTc0MjEzMw@@._V1_SX300.jpg");
+}
+
+.bannerOverlay {
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(8px) grayscale(100) saturate(300) contrast(60%);
+    position: absolute;
+    z-index: 0;
+}
+
+.banner[data-type='series'] {
+    background-image: url("https://m.media-amazon.com/images/M/MV5BMzU5ZGYzNmQtMTdhYy00OGRiLTg0NmQtYjVjNzliZTg1ZGE4XkEyXkFqcGc@._V1_SX300.jpg");
+}
+
+.banner[data-type='movie'] {
+    background-image: url("https://m.media-amazon.com/images/M/MV5BMjM2MDgxMDg0Nl5BMl5BanBnXkFtZTgwNTM2OTM5NDE@._V1_SX300.jpg");
+}
+
+.container {
+    z-index: 2;
+}

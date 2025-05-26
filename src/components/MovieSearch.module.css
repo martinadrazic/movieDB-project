@@ -1,0 +1,15 @@
+
+
+.searchForm {
+  display: flex;
+  width: 800px;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.error {
+  color: #dc2626; /* Red */
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
