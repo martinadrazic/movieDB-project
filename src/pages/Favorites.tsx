@@ -1,9 +1,10 @@
 import { MovieCard } from "../components/MovieCard";
 import styles from "./Favorites.module.css";
 import { useListsContext } from "../context/ListsContext.tsx";
+import { Button } from "@contentful/f36-components";
 
 export function Favorites() {
-  const { favorites } = useListsContext();
+  const { favorites, clearAllFavorites } = useListsContext();
 
   if (favorites.length === 0) {
     return (
@@ -22,6 +23,14 @@ export function Favorites() {
           <MovieCard key={movie.id} movie={movie} />
         ))}
       </div>
+      <Button
+        className={styles.button}
+        variant="positive"
+        isFullWidth
+        onClick={clearAllFavorites}
+      >
+        Clear all
+      </Button>
     </div>
   );
 }

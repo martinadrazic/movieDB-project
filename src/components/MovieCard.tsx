@@ -13,14 +13,9 @@ export function MovieCard({ movie }: PropsWithChildren<{ movie: Movie }>) {
   }, [favorites, movie.id]);
 
   return (
-    <Link to={`/movies/${movie.id}`} className={styles.cardLink}>
-      <Card className={styles.card}>
-        <Flex flexDirection="column" fullHeight>
-          <img
-            className={styles.poster}
-            src={movie.poster}
-            alt={`movie poster for ${movie.title}`}
-          />
+    <Card className={styles.card}>
+      <Flex flexDirection="column" fullHeight>
+        <Link to={`/movies/${movie.id}`} className={styles.cardLink}>
           <Flex
             flexDirection="column"
             padding="spacingM"
@@ -28,6 +23,11 @@ export function MovieCard({ movie }: PropsWithChildren<{ movie: Movie }>) {
             justifyContent="space-between"
             flexGrow={1}
           >
+            <img
+              className={styles.poster}
+              src={movie.poster}
+              alt={`movie poster for ${movie.title}`}
+            />
             <Flex flexDirection="column">
               <Text fontColor="gray600">{movie.year}</Text>
               <Heading
@@ -40,19 +40,26 @@ export function MovieCard({ movie }: PropsWithChildren<{ movie: Movie }>) {
                 {movie.title}
               </Heading>
             </Flex>
-
-            <Button
-              onClick={() => toggleFavorites(movie)}
-              className={`${styles.button} ${isFavorite ? styles.active : ""}`}
-              isFullWidth
-              variant={isFavorite ? "negative" : "positive"}
-              startIcon={isFavorite ? <MinusIcon /> : <PlusIcon />}
-            >
-              {isFavorite ? "Unfavorite" : "Add to Favorites"}
-            </Button>
           </Flex>
+        </Link>
+
+        <Flex
+          flexDirection="column"
+          padding="spacingM"
+          gap="spacingM"
+          justifyContent="space-between"
+        >
+          <Button
+            onClick={() => toggleFavorites(movie)}
+            className={`${styles.button} ${isFavorite ? styles.active : ""}`}
+            isFullWidth
+            variant={isFavorite ? "negative" : "positive"}
+            startIcon={isFavorite ? <MinusIcon /> : <PlusIcon />}
+          >
+            {isFavorite ? "Unfavorite" : "Add to Favorites"}
+          </Button>
         </Flex>
-      </Card>
-    </Link>
+      </Flex>
+    </Card>
   );
 }

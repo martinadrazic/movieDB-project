@@ -9,14 +9,20 @@ interface Props {
 }
 
 export function MovieSearch({ filter }: PropsWithChildren<Props>) {
-  const { searchError, searchMovies } = useMoviesContext();
-  const [query, setQuery] = useState("");
+  const searchString: string = localStorage.getItem("searchString") || "";
+  const { searchError, searchMovies, clearAll } = useMoviesContext();
+  const [query, setQuery] = useState(searchString);
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     if (query.trim()) {
       searchMovies(query, filter);
     }
+  };
+
+  const handleClear = () => {
+    setQuery("");
+    clearAll();
   };
 
   return (
@@ -31,6 +37,11 @@ export function MovieSearch({ filter }: PropsWithChildren<Props>) {
         <Button startIcon={<SearchIcon />} type="submit">
           Search
         </Button>
+        {query && (
+          <Button variant="negative" onClick={handleClear}>
+            Clear search input
+          </Button>
+        )}
       </form>
       {searchError && <p className={styles.error}>{searchError}</p>}
     </>
