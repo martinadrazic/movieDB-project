@@ -1,9 +1,9 @@
 .footer {
-    background: var(--gray-800);
-    color: var(--color-white);
+  background: var(--gray-800);
+  color: var(--color-white);
 }
 
-.innerFoooter {
-    width: 100%;
-    max-width: 1220px;
+.innerFooter {
+  width: 100%;
+  max-width: 1220px;
 }

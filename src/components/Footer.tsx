@@ -12,7 +12,7 @@ export function Footer() {
       flexDirection="column"
       className={styles.footer}
     >
-      <Flex className={styles.innerFoooter} flexDirection="column">
+      <Flex className={styles.innerFooter} flexDirection="column">
         <Flex justifyContent="space-between" fullWidth flexWrap="wrap">
           <Flex flexDirection="column" marginBottom="spacingM">
             <Heading as="h3" marginBottom="spacingXs" fontColor="colorWhite">
